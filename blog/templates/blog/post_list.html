@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+
+
+
+<div class="card">
+    <ul class="list-group list-group-flush">
+        <div class="list-group-item">
+
+
+            {% for post in post_list %}
+
+
+            <div class="post">
+                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <div class="date">
+                    <h6 class="card-subtitle " >Published on: {{ post.published_date }}</h6>
+                    <div class="float-right">
+                        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+            <br><hr>
+            {% endfor %}
+        </div>
+
+
+</div>
+
+</ul>
+</div>
+
+
+
+
+
+
+{% endblock %}
